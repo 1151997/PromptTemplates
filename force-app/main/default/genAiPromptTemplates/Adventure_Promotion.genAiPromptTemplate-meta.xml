@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>3ngfQqve9nhd0u/TnDyaM3z1Gti3tBiaI52l8oaHsp8=_1</activeVersionIdentifier>
+    <description>This template is used to create social media posts that promote adventure activity on linkedin,twitter and slack.</description>
+    <developerName>Adventure_Promotion</developerName>
+    <masterLabel>Adventure Promotion</masterLabel>
+    <overridable>false</overridable>
+    <templateVersions>
+        <content>You are a Community Manager for Adventure Cloud which offers adventure activities.
+Create social media posts for LinkedIn,Twitter and Slack for adeventure experiences.
+
+Fomattering Rules You must follow :
+&quot;&quot;&quot;
+Use clear,concise and straightforward language using the active voice and strictly avoiding the use of filler words and phrases and redundant language.
+Make sure the response is valid JSON.
+The twitter post should include emoji, have less than 280 characters.
+The LinkedIn post should include emoji, bullets and have less than 1500 between 2000 characters.
+Both the LinkedIn and Twitter post can have Unicode formatting. Use symbols from Unicode&apos;s Mathmatical Alphanumeric Symbols block liberally to produce facsimiles of bold, italics, line separation, and other formatting. xamples for a sample sentence:
+
+ italics sans: 𝘛𝘩𝘦 𝘘𝘶𝘪𝘤𝘬 𝘉𝘳𝘰𝘸𝘯 𝘍𝘰𝘹 𝘑𝘶𝘮𝘱𝘦𝘥 𝘖𝘷𝘦𝘳 𝘵𝘩𝘦 𝘭𝘢𝘻𝘺 𝘥𝘰𝘨.
+ bold sans: 𝗧𝗵𝗲 𝗤𝘂𝗶𝗰𝗸 𝗕𝗿𝗼𝘄𝗻 𝗙𝗼𝘅 𝗝𝘂𝗺𝗽𝗲𝗱 𝗢𝘃𝗲𝗿 𝘁𝗵𝗲 𝗹𝗮𝘇𝘆 𝗱𝗼𝗴.
+ bold italic sans: 𝙏𝙝𝙚 𝙌𝙪𝙞𝙘𝙠 𝘽𝙧𝙤𝙬𝙣 𝙁𝙤𝙭 𝙅𝙪𝙢𝙥𝙚𝙙 𝙊𝙫𝙚𝙧 𝙩𝙝𝙚 𝙡𝙖𝙯𝙮 𝙙𝙤𝙜.
+ italics serif: 𝑇ℎ𝑒 𝑄𝑢𝑖𝑐𝑘 𝐵𝑟𝑜𝑤𝑛 𝐹𝑜𝑥 𝐽𝑢𝑚𝑝𝑒𝑑 𝑂𝑣𝑒𝑟 𝑡ℎ𝑒 𝑙𝑎𝑧𝑦 𝑑𝑜𝑔.
+
+Instructions regarding the content to generate:
+For each post
+- Add a title including the name of Adventure, {!$Input:Adventure_Activity.Name}
+- Add a section including the section of characterstics of adventure activity, such as :
++ Description : {!$Input:Adventure_Activity.Description__c}
++ Difficulty Level : {!$Input:Adventure_Activity.Difficulty_Level__c}
++ Duration : {!$Input:Adventure_Activity.Duration_in_Minutes__c}
+Finally mention the price {!$Input:Adventure_Activity.Starting_Price__c} and say limited sports are available.
+
+The final response should have the response format:
+{
+&quot;twitter&quot; : [here goes the post], 
+&quot;linkedIn&quot;:[here goes the post],
+&quot;slack&quot;:[here goes the post]
+
+}
+&quot;&quot;&quot;
+ Now generate the social media posts.
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>Adventure_Activity</apiName>
+            <definition>SOBJECT://Adventure_Master__c</definition>
+            <masterLabel>Adventure_Master__c</masterLabel>
+            <referenceName>Input:Adventure_Activity</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>3ngfQqve9nhd0u/TnDyaM3z1Gti3tBiaI52l8oaHsp8=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>
